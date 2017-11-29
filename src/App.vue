@@ -6,6 +6,9 @@
     </header>
     <main id="app-main">
       <aside id="app-main-aside">
+        <ul>
+          <li v-for="list in lists"><a :href='list.url'>{{list.title}}</a></li>
+        </ul>
       </aside>
       <article id="app-main-article">
         <router-view/>
@@ -19,7 +22,25 @@
 
 <script>
 export default {
-  name: "app"
+  name: "app",
+  data(){
+    return {
+      lists:[
+        {
+          url:'/people',
+          title:'人'
+        },
+        {
+          url:'/car',
+          title:'车'
+        },
+        {
+          url:'/system',
+          title:'系统'
+        }
+      ]
+    }
+  }
 };
 </script>
 
